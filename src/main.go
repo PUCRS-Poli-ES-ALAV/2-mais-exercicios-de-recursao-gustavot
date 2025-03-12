@@ -16,6 +16,8 @@ func main() {
 	fmt.Printf("6. ConvBase2 --> %s\n", convBase2(12))
 	fmt.Printf("7. ArrayList Somatorio --> %d\n", arrayListSomatorio(lista))
 	fmt.Printf("8. Biggest --> %d\n", findBiggest(lista))
+	fmt.Printf("9. Find substring --> %t\n", findSubStr("pedro", "pedro"))
+	fmt.Printf("10. Find number of digits --> %d\n", nroDigit(102220))
 
 }
 
@@ -92,6 +94,8 @@ func arrayListSomatorio(l []int) int64 {
 
 }
 
+// 8. Modele e implemente um método recursivo para encontrar o maior elemento de um ArrayList.
+
 func findBiggest(l []int) int {
 	return findBiggestAux(l, l[len(l)-1])
 }
@@ -109,4 +113,30 @@ func findBiggestAux(l []int, biggest int) int {
 	}
 
 	return findBiggestAux(l[:len(l)-1], biggest)
+}
+
+//9. Implemente um método recursivo para determinar se um string ocorre dentro de outro.
+
+func findSubStr(str string, match string) bool {
+	if len(match) > len(str) {
+		return false
+	}
+	if str[:len(match)] == match {
+		return true
+	}
+	return findSubStr(str[1:], match)
+}
+
+//10. Faça um método recursivo que determina o número de dígitos de um inteiro.
+
+func nroDigit(n int) int {
+	if (n / 10) < 1 {
+		return 1
+	}
+	return 1 + nroDigit(int(n/10))
+}
+
+// to think abt
+func permutations(str string) []string {
+	return []string{""}
 }
